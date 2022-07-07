@@ -1,9 +1,9 @@
-import {Router} from "express";
+import { Router } from "express";
 
-//import controller from "./controllerFuturo"
+import authRouter from "./authRouter.js";
 
 const router = Router();
 
-//router.use(controllerUsado);
+router.use(authRouter);
 
 export default router;
