@@ -1,10 +1,9 @@
-import {Router} from "express";
-import postRegister from "../controllers/authController"
-//import controller from "./controllerFuturo"
+import { Router } from "express";
 
-const router = Router();
+import authRouter from "./authRouter.js";
+import postRegister from "../controllers/authController.js"
 
-//router.use(controllerUsado);
-router.use("/register", postRegister)
+router.use("/register", postRegister);
+router.use(authRouter);
 
 export default router;
