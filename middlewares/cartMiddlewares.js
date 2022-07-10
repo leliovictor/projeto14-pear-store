@@ -22,12 +22,11 @@ export async function checkToken(req, res, next) {
 export async function findUserCart (req, res, next) {
     const {email} = res.locals.data;
 
-    const cart = db.collection("cart").findOne({email});
+    const cart = db.collection("users").findOne({email});
 
-    if(!cart) return res.status(404).send("User not found");
+    if(!cart) return res.status(404).send("Cart not found");
 
     res.locals.cart = cart;
     
     next();
-
 }
