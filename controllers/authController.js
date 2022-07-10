@@ -1,7 +1,8 @@
-import db from '../config/db'
-import joi from 'joi'
-import bcrypt from 'bcrypt'
+import joi from 'joi';
+import bcrypt from 'bcrypt';
 import jwt from "jsonwebtoken";
+
+import db from '../config/db.js';
 
 export default async function postRegister() {
     const user = req.body;
