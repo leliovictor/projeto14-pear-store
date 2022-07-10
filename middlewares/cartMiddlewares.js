@@ -1,5 +1,4 @@
 import jwt from "jsonwebtoken";
-
 import db from "../config/db.js";
 
 export async function checkToken(req, res, next) {

@@ -1,5 +1,4 @@
 import bcrypt from "bcrypt";
-
 import db from "../config/db.js";
 import { loginSchema } from "../schemas/authSchema.js";
 
@@ -12,7 +11,7 @@ export async function findUser(req, res, next) {
       detail: userValidation.error.details[0].message,
     });
   }
-
+  
   const { email } = req.body;
 
   const user = await db.collection("users").findOne({ email });
