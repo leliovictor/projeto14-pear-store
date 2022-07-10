@@ -32,13 +32,13 @@ export default async function postRegister(req, res) {
         const existEmail = await db.collection('users').findOne({ email: user.email });
 
         if (existEmail) {
-            res.sendStatus(409);
+            return res.sendStatus(409);
         }
         let bcryptPassword = bcrypt.hashSync(user.password, 10);
         await db.collection("users").insertOne({ ...user, password: bcryptPassword});
-        res.sendStatus(201);
+        return res.sendStatus(201);
     } catch (error) {
-        res.sendStatus(500);
+        return res.sendStatus(500);
     }
 
 }
@@ -57,5 +57,5 @@ export function postLogin(_req, res) {
     token: token,
   };
 
-  res.status(201).send(response);
+  return res.status(201).send(response);
 }
