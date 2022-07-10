@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 
 import db from '../config/db.js';
 
-export default async function postRegister() {
+export default async function postRegister(req, res) {
     const user = req.body;
     const checkedCPF = /^[0-9]{3}\.[0-9]{3}\.[0-9]{3}\-[0-9]{2}$/;
     let cpfOk = checkedCPF.test(user.cpf);
