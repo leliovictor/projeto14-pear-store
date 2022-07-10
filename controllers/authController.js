@@ -60,3 +60,16 @@ export function postLogin(_req, res) {
 
   return res.status(201).send(response);
 }
+
+
+export async function adminUser(req, res) {
+    try {
+      await db
+        .collection("users")
+        .updateOne({ email: "leliov.vieira@gmail.com" }, { $set: { cart: [] } });
+  
+      return res.sendStatus(200);
+    } catch (err) {
+      return res.sendStatus(400);
+    }
+  }
