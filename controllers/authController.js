@@ -9,7 +9,7 @@ export default async function postRegister(req, res) {
     const checkedCPF = /^[0-9]{3}\.[0-9]{3}\.[0-9]{3}\-[0-9]{2}$/;
     let cpfOk = checkedCPF.test(user.cpf);
 
-    authSchema = joi.object({
+    const authSchema = joi.object({
         name: joi.string().required(),
         email: joi.string().email().required(),
         cpf: joi.string().required(),
