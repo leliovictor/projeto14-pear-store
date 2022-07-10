@@ -3,7 +3,7 @@ import joi from 'joi'
 import bcrypt from 'bcrypt'
 import jwt from "jsonwebtoken";
 
-export default function postRegister() {
+export default async function postRegister() {
     const user = req.body;
     const checkedCPF = /^[0-9]{3}\.[0-9]{3}\.[0-9]{3}\-[0-9]{2}$/;
     let cpfOk = checkedCPF.test(user.cpf);
