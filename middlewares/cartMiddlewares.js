@@ -18,14 +18,14 @@ export async function checkToken(req, res, next) {
   next();
 }
 
-export async function findUserCart (_req, res, next) {
-    const {email} = res.locals.data;
+export async function findUserCart(_req, res, next) {
+  const { email } = res.locals.data;
 
-    const cart = db.collection("users").findOne({email});
+  const { cart } = db.collection("users").findOne({ email });
 
-    if(!cart) return res.status(404).send("Cart not found");
+  if (!cart) return res.status(404).send("Cart not found");
 
-    res.locals.cart = cart;
-    
-    next();
+  res.locals.cart = cart;
+
+  next();
 }
