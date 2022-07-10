@@ -4,6 +4,7 @@ import db from "../config/db.js";
 export async function checkToken(req, res, next) {
   const { authorization } = req.headers;
   const token = authorization?.replace("Bearer ", "");
+  console.log(authorization, token);
 
   if (!token) return res.status(401).send("Miss token from headers");
 
