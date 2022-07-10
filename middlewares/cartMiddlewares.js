@@ -21,9 +21,7 @@ export async function checkToken(req, res, next) {
 export async function findUserCart(_req, res, next) {
   const { email } = res.locals.data;
   
-  const cart = await db.collection("users").findOne({ email });
-  
-  console.log(email, cart);
+  const { cart } = await db.collection("users").findOne({ email });
   
   if (!cart) return res.status(404).send("Cart not found");
 
