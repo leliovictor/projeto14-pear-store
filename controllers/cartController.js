@@ -1,4 +1,4 @@
-import db from "../config/db";
+import db from "../config/db.js";
 
 export function getCart(_req, res) {
   const { cart } = res.locals;
@@ -12,10 +12,10 @@ export async function deleteCartItem(req, res) {
 
   const index = req.params;
 
-  cart.splice(index,1);
+  cart.splice(index, 1);
 
   try {
-    await db.collection("users").updateOne({email}, {$set: {cart}});
+    await db.collection("users").updateOne({ email }, { $set: { cart } });
 
     res.sendStatus(202);
   } catch(err) {
