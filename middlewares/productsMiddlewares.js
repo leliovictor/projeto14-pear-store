@@ -16,7 +16,7 @@ export async function findUser(_req, res, next) {
 export async function findProduct(req, res, next) { 
   const { _id } = req.body;
   
-    const productItem = db.collection("produtos").findOne({ _id: new ObjectId(_id)});
+    const productItem = await db.collection("produtos").findOne({ _id: new ObjectId(_id)});
  
     if(!productItem) return res.status(404).send("Product not found");
 
