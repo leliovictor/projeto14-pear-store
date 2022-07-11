@@ -17,7 +17,7 @@ export async function postProductItem(_req, res) {
     const { user } = res.locals;
     const { cart } = user;
 
-    productItem = res.locals.product;
+    const productItem = res.locals.product;
     cart.push(productItem);
 
     console.log(user, cart, productItem);
