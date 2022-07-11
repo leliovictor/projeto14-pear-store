@@ -6,7 +6,7 @@ export function getCart(_req, res) {
   return res.status(202).send(cart);
 }
 
-export function deleteCartItem(req, res) {
+export async function deleteCartItem(req, res) {
   const { email } = req.locals.data;
   const { cart } = req.locals;
 
