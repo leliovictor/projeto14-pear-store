@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 import { getProducts, postProductItem } from "../controllers/productsController.js";
-import { findUser, findProduct } from "../middlewares/productMiddleware.js";
+import { findUser, findProduct } from "../middlewares/productsMiddleware.js";
 import { checkToken, findUserCart } from "../middlewares/cartMiddlewares.js";
 
 const productsRouter = Router();
