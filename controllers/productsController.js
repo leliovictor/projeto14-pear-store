@@ -19,10 +19,8 @@ export async function postProductItem(_req, res) {
     const productItem = res.locals.product;
     cart.push(productItem);
 
-    console.log(user, cart, productItem);
-
     try {
-        await db.collection("users").updateOne({ user: user.email }, { $set: { cart } });
+        await db.collection("users").updateOne({ email: user.email }, { $set: { cart } });
         return res.sendStatus(200);
     } catch (err) {
         return res.sendStatus(400);
