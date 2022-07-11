@@ -1,10 +1,13 @@
-import { Router } from "express"
+import { Router } from "express";
 
-import { getProducts } from "../controllers/productsController.js"
-import { productCheckToken } from "../middlewares/productMiddleware.js"
-const productsRouter = Router()
+import { getProducts, postProductItem } from "../controllers/productsController.js";
+import { findUser, findProduct } from "../middlewares/productMiddleware.js";
+import { checkToken, findUserCart } from "../middlewares/cartMiddlewares.js";
 
-productsRouter.get('/produtos', productCheckToken, getProducts)
+const productsRouter = Router();
+
+productsRouter.get('/produtos', checkToken, getProducts);
+productsRouter.post("/produtos", checkToken, findUser, findProduct, postProductItem);
 
 
-export default productsRouter
+export default productsRouter;
