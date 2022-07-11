@@ -6,10 +6,9 @@ export async function getProducts(_req, res) {
     try {
         const products = await db.collection("produtos").find({}).toArray();
 
-        console.log(products);
-        res.status(200).send(products);
+        return res.status(200).send(products);
     } catch {
-        res.sendStatus(500);
+        return res.sendStatus(500);
     }
 }
 
