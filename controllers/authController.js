@@ -35,7 +35,7 @@ export default async function postRegister(req, res) {
             return res.sendStatus(409);
         }
         let bcryptPassword = bcrypt.hashSync(user.password, 10);
-        await db.collection("users").insertOne({ ...user, cart:[], password: bcryptPassword});
+        await db.collection("users").insertOne({ name: user.name, email: user.email, password: bcryptPassword, cart:[]});
         return res.sendStatus(201);
     } catch (error) {
         return res.sendStatus(500);

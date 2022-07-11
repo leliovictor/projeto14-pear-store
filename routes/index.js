@@ -1,12 +1,13 @@
 import { Router } from "express";
 
+import registerRouter from "./registerRouter"
 import authRouter from "./authRouter.js";
 import cartRouter from "./cartRouter.js";
-import postRegister from "../controllers/authController.js";
+
 
 const router = Router();
 
-router.use("/register", postRegister);
+router.use(registerRouter);
 router.use(authRouter);
 router.use(cartRouter);
 
