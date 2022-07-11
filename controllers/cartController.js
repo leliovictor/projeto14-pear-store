@@ -7,8 +7,8 @@ export function getCart(_req, res) {
 }
 
 export async function deleteCartItem(req, res) {
-  const { email } = req.locals.data;
-  const { cart } = req.locals;
+  const { email } = res.locals.data;
+  const { cart } = res.locals;
 
   const index = req.params;
 
