@@ -55,6 +55,7 @@ export function postLogin(_req, res) {
   const response = {
     name,
     email,
+    cpf,
     token: token,
   };
 
