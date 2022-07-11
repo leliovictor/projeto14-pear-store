@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import db from "../db.js";
+import db from "../config/db.js";
 
 
 export async function getProducts(_req, res) {
